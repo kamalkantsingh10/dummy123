@@ -1,0 +1,92 @@
+Agent 1: Analyst (/analyst)                                                                                                                                                                                                                                            
+  Key Tasks: Legacy portfolio scanning, business function mapping, Epic boundary definition, business logic extraction per Epic, domain research, edge case identification.                                                                                              
+  Why This Agent: Humans understand the business but not always the legacy code. The Analyst bridges that gap — systematically extracting what the old system does so humans can validate it and downstream agents can build against verified logic, not tribal          
+  knowledge.                                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                         
+  Agent 2: Architect (/architect)                                                                                                                                                                                                                                        
+  Key Tasks: Target stack selection, mid-level technical design, architecture patterns per Epic, cross-Epic consistency enforcement, integration design.
+  Why This Agent: Keeps humans focused on strategic design decisions while the agent enforces consistency across dozens of stories and multiple Epics. Without it, each Dev agent or developer invents their own patterns and the modernized system becomes fragmented.
+
+  Agent 3: Product Manager (/pm)
+  Key Tasks: PRD creation, Epic definition and sequencing, risk/value prioritization, stakeholder communication, go/no-go decisions for back-testing and cutover.
+  Why This Agent: Gives humans a structured way to make prioritization and sequencing decisions. The agent maintains the PRD as the single source of truth so that every other agent and team member works from the same plan — not from memory or stale emails.
+
+  Agent 4: Story Lead (/sl)
+  Key Tasks: Shard Epics into 10-20 self-contained user stories, write unambiguous acceptance criteria, validate each story is independently implementable, manage within-Epic backlog sequence.
+  Why This Agent: Frees humans from the most tedious part of agile — writing detailed stories. The agent produces consistently structured, self-contained stories that any developer (human or AI) can pick up without needing the full Epic in their head.
+
+  Agent 5: Developer (/dev)
+  Key Tasks: Story-by-story implementation, unit test writing, pipeline setup, defect fixes during back-testing, production hotfixes during parallel run.
+  Why This Agent: Handles the repetitive, pattern-based coding that dominates modernization. Humans review and approve, but the agent does the heavy lifting — turning each story into working code at a pace no manual team can match.
+
+  Agent 6: QA Engineer (/qa)
+  Key Tasks: Story-level quality gates, unit test validation, code review against acceptance criteria, regression testing within an Epic, defect documentation.
+  Why This Agent: Catches defects at the cheapest point — the individual story — before they compound. Humans define the quality bar, but the agent applies it consistently across every story without fatigue or shortcuts.
+
+  Agent 7: Integration Comparator (/ic)
+  Key Tasks: Back-testing design and execution (legacy output vs modern output comparison), cross-Epic integration testing, data reconciliation, NFR assessment, production output monitoring during parallel run.
+  Why This Agent: Answers the one question humans care about most — does the new system produce the same results as the old one? This agent automates the comparison at Epic and system level, giving humans confidence to approve cutover based on evidence, not hope.
+
+
+
+
+-----------------------------
+
+ Stage 1: Discovery & Epic Planning                                                                                                                                                                                                                                     
+                                                                                                                                                                                                                                                                         
+  Activities: Scan the legacy portfolio, map business functions, define Epics (one per business function), agree on testing strategy and mid-level technical design, sequence Epics by risk and business value.                                                          
+
+  Agents: Analyst (domain research, project brief), PM (PRD, Epic definitions), Architect (technical design), PO (sequence validation).
+
+  Importance: Everything downstream depends on getting the boundaries right. A poorly scoped Epic cascades into ambiguous stories, wasted dev cycles, and rework. This stage forces alignment between business owners and the delivery team before any code is touched.
+
+  Outcome → Stage 2: Project Brief, PRD with Epic list, Architecture overview, Testing Strategy, Epic execution sequence.
+
+  ---
+  Stage 2: Preparation & Toolchain Setup
+
+  Activities: Customize WCA4Z and agents for the specific codebase, collate all delta macro documentation (existing and new), convert legacy docs into AI-ingestable format (markdown, structured YAML), set up the dev/test pipeline for the target stack.
+
+  Agents: Architect (tech preferences, target patterns), Analyst (documentation structuring), BMad Master (knowledge base indexing), Dev (pipeline setup).
+
+  Importance: AI agents are only as good as the context they receive. Without properly structured legacy knowledge, the Analyst can't extract business logic and the Dev agent can't generate accurate code. This stage is the difference between agents that guess and
+  agents that know.
+
+  Outcome → Stage 3: Configured agent suite, AI-ready knowledge base per Epic, customized WCA4Z workspace, working pipeline.
+
+  ---
+  Stage 3: Epic Execution
+
+  Activities: For each Epic in sequence — extract business logic from legacy code, design the modern implementation, shard the Epic into 10-20 self-contained user stories, implement each story, QA gate each story, integrate and regression test the completed Epic.
+
+  Agents: Analyst (business logic extraction), Architect (target design), SM + PO (story sharding and validation), Dev (implementation), QA (quality gates and regression).
+
+  Importance: Self-contained stories are the key enabler. Each story can be implemented without understanding the entire Epic, which dramatically reduces the skill required per story and lets AI dev agents operate reliably. The shard-then-execute pattern also means
+   failures are isolated — a bad story doesn't poison the Epic.
+
+  Outcome → Stage 4: Completed Epic code with story-level tests, QA gate reports, integration-ready build.
+
+  ---
+  Stage 4: Back-Testing
+
+  Activities: Compare legacy output against modern output Epic by Epic, run integration tests across all completed Epics, benchmark performance against legacy baselines, triage and fix defects, obtain acceptance sign-off per Epic.
+
+  Agents: QA (test design, traceability, NFR assessment), Dev (defect fixes), PO (acceptance sign-off).
+
+  Importance: Modernization is meaningless if the new system doesn't produce the same results as the old one. Back-testing Epic by Epic catches discrepancies early and in manageable scope rather than discovering them after everything is stitched together.
+
+  Outcome → Stage 5: Validated Epic suite, back-testing reports, acceptance sign-offs, known issues log.
+
+  ---
+  Stage 5: Parallel Run & Cutover
+
+  Activities: Deploy the modernized system alongside the legacy system, monitor and reconcile outputs for 2-3 months, hotfix issues as they surface, execute final cutover — legacy system switched off.
+
+  Agents: Dev (deployment, hotfixes), QA (production validation), PM (stakeholder communication, go/no-go decisions).
+
+  Importance: A parallel run is the safety net. Running both systems simultaneously proves equivalence under real production load and real data — something no test environment can fully replicate. The 2-3 month window builds stakeholder confidence and catches edge
+  cases that only surface with live traffic.
+
+  Outcome: Modernized system in production, legacy system decommissioned.
+
+─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
